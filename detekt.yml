@@ -35,14 +35,14 @@ style:
     active: false
   ReturnCount:
     active: false
+  ForbiddenMethodCall:
+    active: true
+    methods:
+      - value: 'java.lang.Thread.sleep'
+        reason: 'Blocks the thread; use kotlinx.coroutines.delay.'
+      - value: 'java.net.NetworkInterface.getNetworkInterfaces'
+        reason: 'Not bound to the Wi-Fi network; use NetworkBinder.'
 
 potential-bugs:
   UnsafeCallOnNullableType:
     active: true
-
-forbidden-apis:
-  ForbiddenMethodCall:
-    active: true
-    methods:
-      - 'java.lang.Thread#sleep'
-      - 'java.net.NetworkInterface#getNetworkInterfaces'
