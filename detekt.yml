@@ -1,0 +1,48 @@
+build:
+  maxIssues: 0
+  excludeCorrectable: false
+
+config:
+  validation: true
+
+complexity:
+  TooManyFunctions:
+    active: true
+    thresholdInFiles: 25
+    thresholdInClasses: 20
+    thresholdInInterfaces: 15
+    thresholdInObjects: 20
+    thresholdInEnums: 10
+  LongParameterList:
+    active: true
+    functionThreshold: 22
+    constructorThreshold: 12
+    ignoreDefaultParameters: true
+    ignoreAnnotated: ['Composable']
+  LongMethod:
+    active: true
+    threshold: 160
+  CyclomaticComplexMethod:
+    active: true
+    threshold: 25
+
+style:
+  MaxLineLength:
+    active: true
+    maxLineLength: 160
+    excludeCommentStatements: true
+  MagicNumber:
+    active: false
+  ReturnCount:
+    active: false
+
+potential-bugs:
+  UnsafeCallOnNullableType:
+    active: true
+
+forbidden-apis:
+  ForbiddenMethodCall:
+    active: true
+    methods:
+      - 'java.lang.Thread#sleep'
+      - 'java.net.NetworkInterface#getNetworkInterfaces'
